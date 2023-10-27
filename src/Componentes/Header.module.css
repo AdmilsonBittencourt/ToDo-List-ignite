@@ -1,0 +1,23 @@
+header{
+    height: 12.5rem;
+    width: 100%;
+    background: var(--Gray-700);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.content{
+    display: flex;
+    gap: .75rem;
+}
+
+.content h1{
+    display: flex;
+    color: var(--Blue);
+}
+
+.content h1 p{
+    color: var(--PurpleDark);
+}

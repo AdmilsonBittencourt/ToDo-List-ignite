@@ -1,0 +1,97 @@
+.formContainer{
+    width: 46rem;
+    margin-inline: auto;
+    margin-top: -1.5rem;
+}
+
+.contentInput{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    gap: .5rem;
+
+    margin-bottom: 4.06rem;
+}
+
+.inputText{
+    width: 100%;
+    display: flex;
+    padding: 1rem;
+    align-items: center;
+    border-radius: 8px;
+    border: 1px solid var(--Gray-700);
+    background: var(--Gray-500);
+    color: var(--Gray-300);
+    outline: none;
+}
+
+.inputText:focus{
+    border: 1px solid var(--PurpleDark);
+    color: var(--Gray-100);
+}
+
+.contentInput button{
+    display: inline-flex;
+    padding: 1rem;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    border-radius: 8px;
+    background: var(--Blue-Dark);
+    color: var(--Gray-100);
+    font-size: .875rem;
+    font-weight: 700;
+    line-height: 140%; 
+    gap: .5rem;
+    cursor: pointer;
+    transition: .2s;
+}
+
+.contentInput button:hover{
+    background: var(--Blue);
+}
+
+.formContainer footer{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+.newTasks{
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+}
+
+.newTasks span{
+    color: var(--Blue);
+    font-size: .875rem;
+    font-weight: 700;
+}
+
+.backgroundCont{
+    display: flex;
+    padding: 2px 8px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 999px;
+    background: var(--Gray-400);
+    color: var(--Gray-200);
+
+    font-size: .75rem;
+    font-weight: 700;
+}
+
+.tasksCompleted{
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+}
+
+.tasksCompleted span{
+    color: var(--Purple);
+    font-size: .875rem;
+    font-weight: 700;
+}
+
