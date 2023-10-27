@@ -1,4 +1,4 @@
-.formContainer{
+.container{
     width: 46rem;
     margin-inline: auto;
     margin-top: -1.5rem;
@@ -51,11 +51,10 @@
     background: var(--Blue);
 }
 
-.formContainer footer{
+.selectionHeader{
     display: flex;
     justify-content: space-between;
     align-items: center;
-
 }
 
 .newTasks{
@@ -93,5 +92,29 @@
     color: var(--Purple);
     font-size: .875rem;
     font-weight: 700;
+}
+
+.boxList{
+    border-radius: 8px;
+    border-top: 1px solid var(--Gray-400);
+    margin-top: 1.5rem;
+    padding: 4rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+.boxList img{
+    width: 3.5rem;
+    height: 3.5rem;
+}
+
+.boxList{
+    font-size: 16px;
+    color: var(--Gray-300);
+    font-weight: 400;
+    line-height: 140%;
 }
 
