@@ -11,12 +11,12 @@ export function Main(){
 
     const [task, setTask] = useState([
         {
-            id: uuidv4,
+            id: uuidv4(),
             content: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Odio ipsum velit, aut porro ipsa, facilis commodi.',
             isCompleted: false
         },
         {
-            id: 'sss',
+            id: uuidv4(),
             content: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Odio ipsum velit, aut porro ipsa, facilis commodi.',
             isCompleted: false
         },
@@ -28,16 +28,22 @@ export function Main(){
         event.preventDefault();
 
         const newTask = {
-            id: uuidv4,
+            id: uuidv4(),
             content: taskText,
             isCompleted: false,
         }
 
         setTask([...task, newTask])
+        setTaskText('')
     }
 
     function taskNewValueChange(){
+        event.target.setCustomValidity('')
         setTaskText(event.target.value)
+    }
+
+    function inputValid(){
+        event.target.setCustomValidity("Campo obrigatorio!")
     }
 
     return (
@@ -49,6 +55,9 @@ export function Main(){
                         placeholder='Adicione uma nova tarefa' 
                         name='inputText'
                         onChange={taskNewValueChange}
+                        value={taskText}
+                        onInvalid={inputValid}
+                        required
                     />
                     <button type='submit'>
                         criar

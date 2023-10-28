@@ -13,17 +13,29 @@
     font-size: .875rem;
     font-weight: 400;
     line-height: 140%;
-    margin-right: .75rem;
 }
 
 .containerTask button{
     border: none;
     background: transparent;
     color: var(--Gray-300);
+    cursor: pointer;
+}
+
+.containerTask button:focus{
+    color: var(--Danger);
 }
 
 .containerTask + .containerTask{
     margin-top: .75rem;
 }
+
+.contentTask{
+    width: 40rem;
+    margin-right: .75rem;
+}
+
+
+
 
 /* https://chakra-ui.com/docs/components/checkbox/theming */

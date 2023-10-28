@@ -18,7 +18,9 @@ export function Tesk({ content }){
                 ></Checkbox>
             </div>
             
-            <p>{content}</p>
+            <div className={style.contentTask}>
+                <p>{content}</p>
+            </div>
 
             <button>
                 <Trash size={20} />
