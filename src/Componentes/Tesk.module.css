@@ -1,0 +1,29 @@
+.containerTask{
+    display: flex;
+    padding: 1rem;
+    align-items: flex-start;
+    border-radius: 8px;
+    border: 1px solid var(--Gray-400);
+    background: var(--Gray-500);
+    box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.06);
+}
+
+.containerTask p {
+    color: var(--Gray-100);
+    font-size: .875rem;
+    font-weight: 400;
+    line-height: 140%;
+    margin-right: .75rem;
+}
+
+.containerTask button{
+    border: none;
+    background: transparent;
+    color: var(--Gray-300);
+}
+
+.containerTask + .containerTask{
+    margin-top: .75rem;
+}
+
+/* https://chakra-ui.com/docs/components/checkbox/theming */
