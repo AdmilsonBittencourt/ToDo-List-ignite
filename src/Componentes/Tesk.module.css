@@ -8,8 +8,16 @@
     box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.06);
 }
 
-.containerTask p {
+.paragraph {
     color: var(--Gray-100);
+    font-size: .875rem;
+    font-weight: 400;
+    line-height: 140%;
+}
+
+.checkedText{
+    text-decoration: line-through;
+    color: var(--Gray-300, #808080);
     font-size: .875rem;
     font-weight: 400;
     line-height: 140%;
@@ -26,6 +34,10 @@
     color: var(--Danger);
 }
 
+.containerTask input{
+    margin-right: .75rem;
+}
+
 .containerTask + .containerTask{
     margin-top: .75rem;
 }
@@ -34,7 +46,6 @@
     width: 40rem;
     margin-right: .75rem;
 }
-
 
 
 

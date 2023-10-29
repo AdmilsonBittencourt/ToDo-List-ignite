@@ -4,42 +4,46 @@ import amg from '../assets/Clipboard.png'
 import { useState } from 'react'
 import { Tesk } from './Tesk';
 
-// import { v4 as uuid } from 'uuid';
-
 
 export function Main(){
 
     const [task, setTask] = useState([
-        {
-            id: 1,
-            content: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Odio ipsum velit, aut porro ipsa, facilis commodi.',
-            isCompleted: false
-        },
-        {
-            id: 2,
-            content: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Odio ipsum velit, aut porro ipsa, facilis commodi.',
-            isCompleted: false
-        },
+        // {
+        //     id: 1,
+        //     content: "ppppppppppppp",
+        //     isCompleted: false,
+        // }
     ])
 
     const [taskText, setTaskText] = useState('')
+
+    const [tasksCreated, setTasksCreated] = useState(0)
 
     function addNewTask(){
         event.preventDefault();
 
         const newTask = {
-            id: 3,
+            id: task.length + 1,
             content: taskText,
             isCompleted: false,
         }
 
         setTask([...task, newTask])
         setTaskText('')
+        contTask()
     }
 
+    function contTask(){
+        setTasksCreated((state) => {
+            return state + 1;
+        })
+    }
+
+ 
     function taskNewValueChange(){
         event.target.setCustomValidity('')
         setTaskText(event.target.value)
+        
     }
 
     function inputValid(){
@@ -47,16 +51,12 @@ export function Main(){
     }
 
     function deleteTask(id){
-
-        console.log(`Deletar task id:${id}`)
-        console.log(task)
-
         const newToDoList = task.filter((task) => {
             return task.id != id;
         })
-
+      
         setTask(newToDoList)
-        console.log(id)
+        setTasksCreated(tasksCreated - 1)
     }
 
     return (
@@ -84,7 +84,7 @@ export function Main(){
                     <div className={style.newTasks}>
                         <span>Tarefas criadas</span>
                         <div className={style.backgroundCont}>
-                            <p>0</p>
+                            <p>{tasksCreated}</p>
                         </div>
                     </div>
 
