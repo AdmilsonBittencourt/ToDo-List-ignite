@@ -4,19 +4,19 @@ import amg from '../assets/Clipboard.png'
 import { useState } from 'react'
 import { Tesk } from './Tesk';
 
-import { v4 as uuidv4 } from 'uuid';
+// import { v4 as uuid } from 'uuid';
 
 
 export function Main(){
 
     const [task, setTask] = useState([
         {
-            id: uuidv4(),
+            id: 1,
             content: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Odio ipsum velit, aut porro ipsa, facilis commodi.',
             isCompleted: false
         },
         {
-            id: uuidv4(),
+            id: 2,
             content: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Odio ipsum velit, aut porro ipsa, facilis commodi.',
             isCompleted: false
         },
@@ -28,7 +28,7 @@ export function Main(){
         event.preventDefault();
 
         const newTask = {
-            id: uuidv4(),
+            id: 3,
             content: taskText,
             isCompleted: false,
         }
@@ -44,6 +44,19 @@ export function Main(){
 
     function inputValid(){
         event.target.setCustomValidity("Campo obrigatorio!")
+    }
+
+    function deleteTask(id){
+
+        console.log(`Deletar task id:${id}`)
+        console.log(task)
+
+        const newToDoList = task.filter((task) => {
+            return task.id != id;
+        })
+
+        setTask(newToDoList)
+        console.log(id)
     }
 
     return (
@@ -93,17 +106,21 @@ export function Main(){
                 </div>
             </section>
 
-            {
+           <div>
+           {
                 task.map(({id, content, isCompleted}) => {
                     return (
                         <Tesk
-                        key={id}
-                        content={content}
-                        isCompleted={isCompleted}
+                            key={id}
+                            taskId={id}
+                            content={content}
+                            isCompleted={isCompleted}
+                            onDelete={deleteTask}
                         />
                     )
                 })
             }
+           </div>
 
         </div>
     )

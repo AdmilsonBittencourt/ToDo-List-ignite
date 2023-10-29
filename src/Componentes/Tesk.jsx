@@ -1,12 +1,16 @@
 import { Trash } from "@phosphor-icons/react"
 import style from './Tesk.module.css'
-
 import { Checkbox } from 'pretty-checkbox-react';
-
 import '@djthoms/pretty-checkbox';
 
-// eslint-disable-next-line react/prop-types
-export function Tesk({ content }){
+
+export function Tesk({ taskId, content, onDelete }){
+
+    function handleDeleteTask(){
+        onDelete(taskId)
+        console.log(content)
+    }
+
     return(
         <div className={style.containerTask}>
             
@@ -22,8 +26,10 @@ export function Tesk({ content }){
                 <p>{content}</p>
             </div>
 
-            <button>
-                <Trash size={20} />
+            <button onClick={handleDeleteTask} >
+                <Trash 
+                size={20}
+                />
             </button>
         </div>
     )
