@@ -5,7 +5,7 @@ import '@djthoms/pretty-checkbox';
 import { useState } from "react";
 
 
-export function Tesk({ taskId, content, onDelete }){
+export function Tesk({ taskId, content, onDelete, addNewTaskComplet, removeTaskComplet }){
 
     const [checkedBox, setCheckedBox] = useState(false)
 
@@ -15,26 +15,26 @@ export function Tesk({ taskId, content, onDelete }){
     }
 
     function checkInput(){
-        console.log('oi')
-        setCheckedBox(event.target.checked)
-    
+        const booleanCheck = event.target.checked;
+        setCheckedBox(booleanCheck)
+
+        if (booleanCheck == true){
+            addNewTaskComplet()
+        } else {
+            removeTaskComplet()
+        }
     }
  
     return(
         <div className={style.containerTask}>
             
             <div >
-                {/* <input 
-                    type="checkbox" 
-                    name="check" 
-                    id="" 
-                    /> */}
                 <Checkbox 
-                shape="round" 
-                icon={<i className="fa-solid fa-check"/>}
-                color="primary-o"
-                onChange={checkInput}
-                ></Checkbox>
+                    shape="round" 
+                    icon={<i className="fa-solid fa-check"/>}
+                    color="primary-o"
+                    onChange={checkInput}
+                />
             </div>
             
             <div className={style.contentTask}>

@@ -7,17 +7,13 @@ import { Tesk } from './Tesk';
 
 export function Main(){
 
-    const [task, setTask] = useState([
-        // {
-        //     id: 1,
-        //     content: "ppppppppppppp",
-        //     isCompleted: false,
-        // }
-    ])
+    const [task, setTask] = useState([])
 
     const [taskText, setTaskText] = useState('')
 
     const [tasksCreated, setTasksCreated] = useState(0)
+
+    const [taskCompleted, setTaskCompleted] = useState(0)
 
     function addNewTask(){
         event.preventDefault();
@@ -38,8 +34,8 @@ export function Main(){
             return state + 1;
         })
     }
-
  
+
     function taskNewValueChange(){
         event.target.setCustomValidity('')
         setTaskText(event.target.value)
@@ -57,6 +53,18 @@ export function Main(){
       
         setTask(newToDoList)
         setTasksCreated(tasksCreated - 1)
+    }
+
+    function addTaskCompleted(){
+        setTaskCompleted((state) => {
+            return state + 1;
+        })
+    }
+
+    function removeTaskCompleted(){
+        setTaskCompleted((state) => {
+            return state - 1
+        })
     }
 
     return (
@@ -91,7 +99,7 @@ export function Main(){
                     <div className={style.tasksCompleted}>
                         <span>Concluidas</span>
                         <div className={style.backgroundCont}>
-                            <p>0</p>
+                            <p>{taskCompleted}</p>
                         </div>
                     </div>
                 </div>
@@ -116,6 +124,8 @@ export function Main(){
                             content={content}
                             isCompleted={isCompleted}
                             onDelete={deleteTask}
+                            addNewTaskComplet={addTaskCompleted}
+                            removeTaskComplet={removeTaskCompleted}
                         />
                     )
                 })
